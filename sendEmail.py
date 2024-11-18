@@ -38,7 +38,7 @@ Content-Type: text/plain; charset="UTF-8";
 
 letter = letter.encode("UTF-8")
 
-server = smtplib.SMTP_SSL('smtp.gmail.com:465')
+server = smtplib.SMTP_SSL('smtp.yandex.com', 465)
 server.login("devmanorg@yandex.ru")
 server.sendmail("devmanorg@yandex.ru", "rozanov.i88@yandex.ru", letter)
 server.quit()
