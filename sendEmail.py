@@ -1,4 +1,5 @@
 import smtplib
+
 text = """
 Привет, %friend_name%! %my_name% приглашает тебя на сайт %website%!
 
@@ -21,7 +22,8 @@ text = """
 website = "https://dvmn.org/referrals/Bi0LsR0LqmTYcz1YYdI4tboUe89XxRjXwwK4vR9x/"
 friend_name = "Девман"
 my_name = "Илья"
-
+my_email = "devmanorg@yandex.ru"
+friends_email = "rozanov.i88@yandex.ru"
 
 
 text = text.replace("%website%", website)
@@ -29,8 +31,8 @@ text = text.replace("%friend_name%", friend_name)
 text = text.replace("%my_name%", my_name)
 
 letter = f"""\
-From: devmanorg@yandex.ru
-To: rozanov.i88@yandex.ru
+From: {my_email}
+To: {friends_email}
 Subject: Важно!
 Content-Type: text/plain; charset="UTF-8";
 {text}
@@ -39,8 +41,8 @@ Content-Type: text/plain; charset="UTF-8";
 letter = letter.encode("UTF-8")
 
 server = smtplib.SMTP_SSL('smtp.yandex.com', 465)
-server.login("devmanorg@yandex.ru")
-server.sendmail("devmanorg@yandex.ru", "rozanov.i88@yandex.ru", letter)
+server.login(f"{my_email}")
+server.sendmail(f"{my_email}", f"{friends_email}", letter)
 server.quit()
 
 
