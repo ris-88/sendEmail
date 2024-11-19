@@ -41,8 +41,8 @@ Content-Type: text/plain; charset="UTF-8";
 letter = letter.encode("UTF-8")
 
 server = smtplib.SMTP_SSL('smtp.yandex.com', 465)
-server.login(f"{my_email}")
-server.sendmail(f"{my_email}", f"{friends_email}", letter)
+server.login("my_email")
+server.sendmail("my_email", "friends_email", letter)
 server.quit()
 
 
