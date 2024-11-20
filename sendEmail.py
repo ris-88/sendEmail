@@ -25,7 +25,6 @@ my_name = "Илья"
 my_email = "devmanorg@yandex.ru"
 friends_email = "rozanov.i88@yandex.ru"
 
-
 text = text.replace("%website%", website)
 text = text.replace("%friend_name%", friend_name)
 text = text.replace("%my_name%", my_name)
@@ -35,6 +34,7 @@ From: {my_email}
 To: {friends_email}
 Subject: Важно!
 Content-Type: text/plain; charset="UTF-8";
+
 {text}
 """
 
@@ -42,9 +42,5 @@ letter = letter.encode("UTF-8")
 
 server = smtplib.SMTP_SSL('smtp.yandex.com', 465)
 server.login(my_email)
-server.sendmail(my_email, riends_email, letter)
+server.sendmail(my_email, friends_email, letter)
 server.quit()
-
-
-
-
